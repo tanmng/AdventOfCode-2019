@@ -5,4 +5,4 @@ spending some time with this
 
 * What happened to question 1, 2, 4 and 5?
 > I don't really remember but I solved them earlier and I don't feel like
-> writing this again, so the repo might be missing some data
+> writing this again, so the repo might be missing some days
