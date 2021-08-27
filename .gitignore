@@ -1,0 +1,2 @@
+# Avoid pushing our own input since that might contain some sensitive info?
+*/input
