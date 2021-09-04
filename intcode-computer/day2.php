@@ -10,15 +10,15 @@
 
 class IntcodeComputerDay2 {
     // Memory and program pointer
-    private $__memory = [];
-    private $__program_pointer = [];
-    private $__state = null;
+    public $__memory = [];
+    public $__program_pointer = [];
+    public $__state = null;
 
     // A small helper
-    private $__memory_length = null;
+    public $__memory_length = null;
 
     public const MEMORY_DELIMITER = ',';
-    private const MAX_CYCLES_COUNT = 1000;
+    public const MAX_CYCLES_COUNT = 1000;
 
     // States of the computer
     public const STATE_INIT = 0;
@@ -27,11 +27,11 @@ class IntcodeComputerDay2 {
 
     // Some constants OPSCODE
     public const OPSCODE_HALT = 99;
-    public const OPSCODE_ADDS = 1;
-    public const OPSCODE_MULTIPLIES = 2;
+    public const OPSCODE_ADD = 1;
+    public const OPSCODE_MULTIPLY = 2;
 
     // A safety mechanism
-    private $__cycle_count = 0;
+    public $__cycle_count = 0;
 
     /*
      * Initialize the computer
@@ -136,7 +136,7 @@ class IntcodeComputerDay2 {
             $this->__state = self::STATE_HALTED;
             return false;
             break;
-        case self::OPSCODE_ADDS:
+        case self::OPSCODE_ADD:
             $this->__state = self::STATE_RUNNING;
             // Perform the add operations
             $address_1 = $this->__memory[$this->__program_pointer + 1];
@@ -152,7 +152,7 @@ class IntcodeComputerDay2 {
             // Increase program counter
             $this->__program_pointer += 4;
             break;
-        case self::OPSCODE_MULTIPLIES:
+        case self::OPSCODE_MULTIPLY:
             $this->__state = self::STATE_RUNNING;
             // Perform the add operations
             $address_1 = $this->__memory[$this->__program_pointer + 1];
@@ -201,10 +201,10 @@ class IntcodeComputerDay2 {
      */
     private function CodeName(int $code): string {
         switch ($code) {
-            case self::OPSCODE_MULTIPLIES:
+            case self::OPSCODE_MULTIPLY:
                 return 'multiplies';
                 break;
-            case self::OPSCODE_ADDS:
+            case self::OPSCODE_ADD:
                 return 'adds';
                 break;
             case self::OPSCODE_HALT:
